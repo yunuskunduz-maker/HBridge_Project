@@ -36,9 +36,11 @@
 
 Sistem, **Proteus 8.13+** ortamında tam kapsamlı olarak test edilmiş ve sinyal kararlılığı dijital osiloskop üzerinden doğrulanmıştır.
 
+![Devre Şeması](./Hardware/devre_semasi.png)
 > **Görsel 1:** Tamamlanmış profesyonel devre şeması ve lojik koruma katmanı.
-> **Görsel 2:** %20 ve %80 Duty Cycle sinyal analizleri.
 
+![Sinyal Analizi](./Hardware/sinyal_analizi.png)
+> **Görsel 2:** %20 ve %80 Duty Cycle sinyal analizleri.
 ***
 
 ### 📁 **KLASÖR YAPISI**
