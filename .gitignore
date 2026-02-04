@@ -1,0 +1,17 @@
+# STM32 temporary build files
+Debug/
+Release/
+*.elf
+*.map
+*.list
+*.o
+*.d
+*.su
+
+# VS Code & OS temporary files
+.settings/
+.project
+.cproject
+.vscode/
+Thumbs.db
+.DS_Store
