@@ -84,9 +84,4 @@
 **Yunus Kunduz**
 *Electrical & Electronics Engineering - Necmettin Erbakan University*
 **YouTube:** [CozumLab](https://www.youtube.com/@CozumLabTR)
----
 
-**CONTACT**
-** **Yunus Kunduz**
-** **Necmettin Erbakan University - Electrical & Electronics Engineering (Junior)**
-** **YouTube Channel:** [CozumLab](https://www.youtube.com/@CozumLab)
