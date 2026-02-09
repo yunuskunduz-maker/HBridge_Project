@@ -1,6 +1,4 @@
-Anladım, tam istediğin gibi; gereksiz karakterlerden arındırılmış, profesyonel hiyerarşiye sahip ve kopyalamaya hazır standart Markdown formatındaki İngilizce README içeriği aşağıdadır.
 
-Markdown
 # STM32 & H-Bridge DC Motor Control
 
 ***
