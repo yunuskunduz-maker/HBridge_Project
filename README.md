@@ -1,56 +1,100 @@
-# STM32 & H-Bridge DC Motor Control
+# << ## **STM32 & H-Bridge DC Motor Control** ## >>
 
 ***
 
-### **PROJE ÖZETİ**
-***Bu çalışma, endüstriyel standartlarda güvenlik ve kontrol prensipleriyle geliştirilmiş, STM32F103C8 tabanlı bir DC motor sürücü sistemidir.*** Projenin temel amacı; sadece bir motoru döndürmek değil, **savunma sanayii** ve **otomotiv** sektörlerinde (ASELSAN, TOGG vb.) kritik öneme sahip olan **Dead-Time (Ölü Zaman) yönetimi**, **Level Shifting (Seviye Kaydırma)** ve **Hardware Interlock (Donanımsal Kilitleme)** gibi ileri seviye mühendislik problemlerine çözüm üretmektir.
-
----
-
-### 🚀 **TEKNİK ÖZELLİKLER**
-
-* **Dinamik Hız Kontrolü (PWM):** STM32 Timer2 birimi üzerinden üretilen yüksek frekanslı sinyaller ile motor hızı %0-100 duty cycle aralığında hassas bir şekilde kontrol edilir.
-* **Donanımsal Güvenlik (74HC08):** AND kapıları kullanılarak oluşturulan mantıksal kilitleme katmanı sayesinde, yazılımsal bir hata oluşsa dahi motorun iki yönünün aynı anda aktif olması (kısa devre) donanımsal olarak engellenmiştir.
-* **Yazılımsal Ölü Zaman (Dead-Time):** Yön değişimleri sırasında transistörlerin tam kapanmasını sağlamak amacıyla algoritma içerisine 500ms güvenlik gecikmesi eklenerek "Shoot-through" akımları engellenmiştir.
-* **İzole Güç Katmanı (Level Shifter):** 3.3V mikrodenetleyici sinyalleri, BC237 transistörleri üzerinden 12V güç katmanına kayıpsız ve izole bir şekilde aktarılmıştır.
-
----
-
-### 🛠️ **TEKNİK SPEKTRUM**
-
-#### **Donanım Mimarisi**
-* **Mikrodenetleyici:** STM32F103C8T6 (ARM Cortex-M3).
-* **Güç Transistörleri:** TIP122 (NPN) ve TIP127 (PNP) Darlington çiftleri.
-* **Sürücü Katmanı:** BC237 NPN transistörlü seviye kaydırıcılar.
-* **Lojik Koruma:** 74HC08 Quad AND Gates.
-* **Koruma Elemanları:** 1N4007 Flyback diyotları (Ters EMF koruması).
-
-#### **Yazılım Mimarisi**
-* **Geliştirme Ortamı:** STM32CubeIDE.
-* **Kütüphane:** STM32 HAL (Hardware Abstraction Layer).
-* **Algoritma:** Modüler `Motor_Drive` ve `Motor_Stop` fonksiyonları ile sürdürülebilir kod yapısı.
-
----
-
-### 📈 **SİMÜLASYON VE ANALİZ**
-
-Sistem, **Proteus 8.13+** ortamında tam kapsamlı olarak test edilmiş ve sinyal kararlılığı dijital osiloskop üzerinden doğrulanmıştır.
-
-![Devre Şeması](./Images/devre_semasi.png)
-> **Görsel 1:** Tamamlanmış profesyonel devre şeması ve lojik koruma katmanı.
-
-![Sinyal Analizi](./Images/sinyal_analizi.png)
-> **Görsel 2:** %20 ve %80 Duty Cycle sinyal analizleri.
+### << ## **PROJECT SUMMARY** ## >>
 ***
 
-### 📁 **KLASÖR YAPISI**
-
-* **/Firmware:** STM32CubeIDE kaynak kodları ve derlenmiş `.hex` dosyası.
-* **/Hardware:** Proteus simülasyon projesi (`.pdsprj`).
+** **This study is an STM32F103C8-based DC motor driver system developed with industrial-grade safety and control principles.**
+** **The primary objective of the project is to provide solutions for high-level engineering challenges such as Dead-Time Management, Level Shifting, and Hardware Interlock.**
+** **These features are critical for systems used in the defense industry and automotive sectors.**
 
 ---
 
-### **İLETİŞİM**
-**Yunus Kunduz** *Necmettin Erbakan Üniversitesi - Elektrik-Elektronik Mühendisliği (3. Sınıf)*
+### << ## **TECHNICAL SPECIFICATIONS** ## >>
 
-***
+** **Dynamic Speed Control (PWM):**
+** **Motor speed is precisely controlled within a 0-100% duty cycle range using high-frequency signals generated via the STM32 Timer2 peripheral.**
+
+** **Hardware Security (74HC08):**
+** **A logical locking layer created with AND gates prevents simultaneous activation of both motor directions, even during software failure.**
+
+** **Software Dead-Time:**
+** **A 500ms safety delay is integrated into the algorithm to ensure transistors are fully turned off during direction changes.**
+** **This mechanism specifically prevents "Shoot-through" currents.**
+
+** **Isolated Power Stage (Level Shifter):**
+** **3.3V microcontroller signals are transferred to the 12V power stage using BC237 transistors as level shifters.**
+** **This provides an isolated and loss-free signal transmission.**
+
+---
+
+### << ## **HARDWARE INTERLOCK & SHOOT-THROUGH MITIGATION** ## >>
+
+** **The most critical failure mode in an H-bridge is the "Shoot-through" phenomenon.**
+** **This occurs when high-side and low-side transistors on the same bridge leg are activated simultaneously, creating a direct short circuit.**
+
+** **In this architecture, the 74HC08 Quad AND Gates serve as a physical logic interlock layer.**
+** **By cross-coupling the directional control signals, the system ensures the PWM drive signal is physically gated.**
+** **Even if the STM32F103C8 outputs conflicting signals due to a software glitch, the hardware logic prevents a short-circuit state.**
+** **This hardware-first safety approach ensures system integrity under all operating conditions.**
+
+---
+
+### << ## **TECHNICAL SPECTRUM** ## >>
+
+#### << ## **Hardware Architecture** ## >>
+** **Microcontroller:**
+** **STM32F103C8T6 (ARM Cortex-M3).**
+
+** **Power Transistors:**
+** **TIP122 (NPN) and TIP127 (PNP) Darlington pairs.**
+
+** **Driver Layer:**
+** **BC237 NPN transistor-based level shifters.**
+
+** **Logic Protection:**
+** **74HC08 Quad AND Gates.**
+
+** **Protection Elements:**
+** **1N4007 Flyback diodes for Back-EMF protection.**
+
+#### << ## **Software Architecture** ## >>
+** **Development Environment:**
+** **STM32CubeIDE.**
+
+** **Library:**
+** **STM32 HAL (Hardware Abstraction Layer).**
+
+** **Algorithm:**
+** **Sustainable code structure using modular Motor_Drive and Motor_Stop functions.**
+
+---
+
+### << ## **SIMULATION AND ANALYSIS** ## >>
+
+** **The system has been comprehensively tested in the Proteus 8.13+ environment.**
+** **Signal stability has been verified via a digital oscilloscope.**
+
+![Circuit Diagram](./Images/devre_semasi.png)
+** **Figure 1: Professional circuit schematic and logic protection layer.**
+
+![Signal Analysis](./Images/sinyal_analizi.png)
+** **Figure 2: Signal analysis for 20% and 80% Duty Cycles.**
+
+---
+
+### << ## **FOLDER STRUCTURE** ## >>
+
+** **/Firmware:**
+** **Contains STM32CubeIDE source codes and the compiled .hex file.**
+
+** **/Hardware:**
+** **Contains the Proteus simulation project file (.pdsprj).**
+
+---
+
+### << ## **CONTACT** ## >>
+** **Yunus Kunduz**
+** **Necmettin Erbakan University - Electrical & Electronics Engineering (Junior)**
+** **YouTube Channel:** [CozumLab](https://www.youtube.com/@CozumLab)
