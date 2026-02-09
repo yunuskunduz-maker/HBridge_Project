@@ -1,8 +1,8 @@
-# << ## **STM32 & H-Bridge DC Motor Control** ## >>
+#  **STM32 & H-Bridge DC Motor Control**
 
 ***
 
-### << ## **PROJECT SUMMARY** ## >>
+**PROJECT SUMMARY** 
 ***
 
 ** **This study is an STM32F103C8-based DC motor driver system developed with industrial-grade safety and control principles.**
@@ -11,7 +11,7 @@
 
 ---
 
-### << ## **TECHNICAL SPECIFICATIONS** ## >>
+**TECHNICAL SPECIFICATIONS**
 
 ** **Dynamic Speed Control (PWM):**
 ** **Motor speed is precisely controlled within a 0-100% duty cycle range using high-frequency signals generated via the STM32 Timer2 peripheral.**
@@ -29,7 +29,7 @@
 
 ---
 
-### << ## **HARDWARE INTERLOCK & SHOOT-THROUGH MITIGATION** ## >>
+**HARDWARE INTERLOCK & SHOOT-THROUGH MITIGATION**
 
 ** **The most critical failure mode in an H-bridge is the "Shoot-through" phenomenon.**
 ** **This occurs when high-side and low-side transistors on the same bridge leg are activated simultaneously, creating a direct short circuit.**
@@ -41,9 +41,9 @@
 
 ---
 
-### << ## **TECHNICAL SPECTRUM** ## >>
+**TECHNICAL SPECTRUM**
 
-#### << ## **Hardware Architecture** ## >>
+**Hardware Architecture**
 ** **Microcontroller:**
 ** **STM32F103C8T6 (ARM Cortex-M3).**
 
@@ -59,7 +59,7 @@
 ** **Protection Elements:**
 ** **1N4007 Flyback diodes for Back-EMF protection.**
 
-#### << ## **Software Architecture** ## >>
+**Software Architecture**
 ** **Development Environment:**
 ** **STM32CubeIDE.**
 
@@ -71,7 +71,7 @@
 
 ---
 
-### << ## **SIMULATION AND ANALYSIS** ## >>
+**SIMULATION AND ANALYSIS**
 
 ** **The system has been comprehensively tested in the Proteus 8.13+ environment.**
 ** **Signal stability has been verified via a digital oscilloscope.**
@@ -84,7 +84,7 @@
 
 ---
 
-### << ## **FOLDER STRUCTURE** ## >>
+**FOLDER STRUCTURE**
 
 ** **/Firmware:**
 ** **Contains STM32CubeIDE source codes and the compiled .hex file.**
@@ -94,7 +94,7 @@
 
 ---
 
-### << ## **CONTACT** ## >>
+**CONTACT**
 ** **Yunus Kunduz**
 ** **Necmettin Erbakan University - Electrical & Electronics Engineering (Junior)**
 ** **YouTube Channel:** [CozumLab](https://www.youtube.com/@CozumLab)
